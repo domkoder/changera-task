@@ -1,17 +1,18 @@
 import React from 'react';
 
-import { Box, Container, Flex } from '@chakra-ui/react';
-import SearchForm from './SearchForm';
+import { Grid, Container, Flex, Link, Spacer, Box } from '@chakra-ui/react';
+import HeaderNav from './HeaderNav';
 
 function Header() {
   return (
-    <Box
-      as="header"
-      w="100%"
-      h="49"
-      borderBottom="1px solid #d0d7de"
-      mt="6"
-    ></Box>
+    <Box borderBottom="1px solid #d0d7de" as="header" mt="6">
+      <Container maxW="container.xl">
+        <Grid gridTemplateColumns="296px 1fr" gap={1}>
+          <Spacer />
+          <HeaderNav />
+        </Grid>
+      </Container>
+    </Box>
   );
 }
 

@@ -6,17 +6,17 @@ import {
   Grid,
   GridItem,
 } from '@chakra-ui/react';
-import Header from './components/Header';
+import { Header } from './components';
+import ProfileDetails from './components/ProfileDetails/ProfileDetails';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
+      <Header />
       <Container maxW="container.xl">
-        <Header />
-
         <Grid gridTemplateColumns="296px 1fr" gap={1}>
-          <GridItem w="100%" h="10" bg="blue.500" />
-          <GridItem w="100%" h="10" bg="blue.500" />
+          <ProfileDetails />
+          <GridItem w="100%" h="10" />
         </Grid>
       </Container>
     </ChakraProvider>
