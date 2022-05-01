@@ -9,7 +9,7 @@ function SubHeader({ Title }) {
   return (
     <Flex gap={4} py={4} borderBottom="1px #d8dee4 solid">
       <Input
-        placeholder="medium size"
+        placeholder="Find a repository…"
         size="sm"
         borderRadius="6px"
         border="1px solid #d0d7de"
