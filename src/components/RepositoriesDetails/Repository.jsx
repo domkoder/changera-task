@@ -21,13 +21,25 @@ import { ReactComponent as Graph } from '../../icons/graph.svg';
 
 // import React from 'react';
 
-function Repository() {
+function Repository({ repository }) {
+  const {
+    name,
+    description,
+    stargazers_count,
+    license,
+    forks_count,
+    language,
+    url,
+    fork,
+    full_name,
+  } = repository;
+
   return (
     <Flex justify="space-between">
       <Box color="#57606a" fontWeight="500">
         <HStack space={2} mb="2">
-          <Link color="#0969da" fontSize="20px" fontWeight="600">
-            50-projects-for-react-and-the-static-web
+          <Link color="#0969da" fontSize="20px" fontWeight="600" href={url}>
+            {name}
           </Link>
           <Badge
             variant="outline"
@@ -41,38 +53,37 @@ function Repository() {
           </Badge>
         </HStack>
         <Text fontSize={'12px'} mb="2">
-          Forked from{' '}
-          <Link _hover={{ color: '#0969da' }}>
-            colbyfayock/50-projects-for-react-and-the-static-web
-          </Link>
+          {fork ? (
+            <>
+              Forked from <Link _hover={{ color: '#0969da' }}>{full_name}</Link>
+            </>
+          ) : null}
         </Text>
         <Text mr={4} maxWidth="500px" noOfLines={2} fontSize="14px" mb="3">
-          50 project ideas to learn by doing complete with project briefs,
-          layout ideas, and resources! 50 project ideas to learn by doing
-          complete with project briefs, layout ideas, and resources! layout
-          ideas, and resources! 50 project ideas to learn by doing complete with
-          project briefs, layout ideas, and resources!
+          {description}
         </Text>
         <HStack fontSize="12px" marginTop="10px" gap="5px">
-          <Text>
-            <Box as="span" />
-            JavaScript
-          </Text>
-
+          {language ? (
+            <Text>
+              <Box as="span" />
+              language
+            </Text>
+          ) : null}
+          language
           <Center>
-            <Icon as={Star} fill="#6e7781" w="16px" h="16px" mr="2px" />1
+            <Icon as={Star} fill="#6e7781" w="16px" h="16px" mr="2px" />
+            {stargazers_count}
           </Center>
-
           <Center>
             <Icon as={Fork} fill="#6e7781" w="16px" h="16px" mr="1" />
-            2,183
+            {forks_count}
           </Center>
-
-          <Center>
-            <Icon as={Law} fill="#6e7781" w="16px" h="16px" mr="1" />
-            Other
-          </Center>
-
+          {license ? (
+            <Center>
+              <Icon as={Law} fill="#6e7781" w="16px" h="16px" mr="1" />
+              {license.name}
+            </Center>
+          ) : null}
           <Text>Updated on Oct 22, 2021</Text>
         </HStack>
       </Box>

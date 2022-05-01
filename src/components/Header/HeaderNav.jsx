@@ -12,7 +12,7 @@ function HeaderNav() {
   return (
     <Flex as="nav">
       {links.map(link => (
-        <HeaderLink link={link} key={link.index} />
+        <HeaderLink link={link} key={link.title} />
       ))}
     </Flex>
   );

@@ -19,8 +19,11 @@ function RepositoriesDetails() {
         align="stretch"
         py={6}
       >
-        {/* <Repository /> */}
-        <Loading />
+        {repositories.map((repository, index) => (
+          <Repository key={index} repository={repository} />
+        ))}
+
+        {/* <Loading /> */}
       </VStack>
     </GridItem>
   );

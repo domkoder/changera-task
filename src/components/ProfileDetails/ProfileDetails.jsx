@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 
 import {
@@ -10,30 +9,42 @@ import {
   Text,
   Heading,
   List,
-  ListItem,
-  ListIcon,
   Image,
   Icon,
 } from '@chakra-ui/react';
+
+import Loading from './Loading';
+import Contact from './Contact';
 
 // import svg as rect components
 import { ReactComponent as Users } from '../../icons/users.svg';
 import { ReactComponent as Location } from '../../icons/location.svg';
 import { ReactComponent as Mail } from '../../icons/mail.svg';
 import { ReactComponent as Twitter } from '../../icons/twitter.svg';
+import { ReactComponent as Link } from '../../icons/link.svg';
 import { ReactComponent as Organization } from '../../icons/organization.svg';
-import Loading from './Loading';
 
 function ProfileDetails() {
-  const currentUser = useSelector(({ entities }) => entities.user);
+  const {
+    avatar_url,
+    name,
+    login,
+    bio,
+    followers,
+    following,
+    company,
+    email,
+    blog,
+    location,
+    twitter_username,
+  } = useSelector(({ entities }) => entities.user);
 
-  console.log('currentUser:', currentUser);
   return (
     <GridItem w="100%">
-      <Loading />
+      {/* <Loading /> */}
       <Box mt="-35px">
         <Box>
-          <Avatar src={currentUser.avatar_url} w="296px" h="296px">
+          <Avatar src={avatar_url} w="296px" h="296px">
             <AvatarBadge
               borderColor="#d0d7de"
               border="1px solid"
@@ -53,20 +64,20 @@ function ProfileDetails() {
           </Avatar>
 
           <Box mt="4" mb="5">
-            <Heading fontSize="24px">{currentUser.name}</Heading>
+            <Heading fontSize="24px">{name}</Heading>
             <Text
               fontSize="20px"
               fontStyle="normal"
               fontWeight="300"
               color="#57606a"
             >
-              {currentUser.login}
+              {login}
             </Text>
           </Box>
         </Box>
 
         <Text mb="4" fontSize="16px" color="#24292f">
-          {currentUser.bio}
+          {bio}
         </Text>
 
         <Button
@@ -89,36 +100,24 @@ function ProfileDetails() {
           display="flex"
           alignItems="center"
         >
-          <Icon as={Users} />
+          <Icon as={Users} fill="#57606a" />
           <Text fontWeight="extrabold" as="span">
-            {currentUser.followers}
+            {followers}
           </Text>
           <Text color="#57606a">followers </Text>
-          <box as="span">.</box>
+          <Box as="span">.</Box>
           <Text fontWeight="extrabold" as="span">
-            {currentUser.following}
+            {following}
           </Text>{' '}
           <Text color="#57606a">following</Text>
         </Box>
 
         <List spacing="5px" fontSize="14px" color="#242f29">
-          <ListItem>
-            <ListIcon as={Organization} fill="#57606a" />
-            TeenMeetCode
-          </ListItem>
-          <ListItem>
-            <ListIcon as={Location} fill="#57606a" />
-            Nigeria Plateau State, Jos
-          </ListItem>
-          <ListItem>
-            <ListIcon as={Mail} fill="#57606a" />
-            nandommamdam@gmail.com
-          </ListItem>
-
-          <ListItem>
-            <ListIcon as={Twitter} fill="#57606a" />
-            @domkoder
-          </ListItem>
+          <Contact title={company} Icon={Organization} />
+          <Contact title={location} Icon={Location} />
+          <Contact title={email} Icon={Mail} />
+          <Contact title={blog} Icon={Link} />
+          <Contact title={twitter_username} Icon={Twitter} />
         </List>
       </Box>
     </GridItem>

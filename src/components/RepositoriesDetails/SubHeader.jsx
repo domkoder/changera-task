@@ -30,6 +30,7 @@ function SubHeader({ Title }) {
           fontSize="14px"
           fontWeight="500"
           boxShadow="sm"
+          _hover={{ bg: '#2c974b' }}
         >
           Email
         </Button>
