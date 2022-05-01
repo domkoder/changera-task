@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
 import {
   GridItem,
   Box,
@@ -20,17 +22,18 @@ import { ReactComponent as Location } from '../../icons/location.svg';
 import { ReactComponent as Mail } from '../../icons/mail.svg';
 import { ReactComponent as Twitter } from '../../icons/twitter.svg';
 import { ReactComponent as Organization } from '../../icons/organization.svg';
+import Loading from './Loading';
 
 function ProfileDetails() {
+  const currentUser = useSelector(({ entities }) => entities.user);
+
+  console.log('currentUser:', currentUser);
   return (
     <GridItem w="100%">
+      <Loading />
       <Box mt="-35px">
         <Box>
-          <Avatar
-            src={'https://avatars.githubusercontent.com/u/23723199?v=4'}
-            w="296px"
-            h="296px"
-          >
+          <Avatar src={currentUser.avatar_url} w="296px" h="296px">
             <AvatarBadge
               borderColor="#d0d7de"
               border="1px solid"
@@ -50,20 +53,20 @@ function ProfileDetails() {
           </Avatar>
 
           <Box mt="4" mb="5">
-            <Heading fontSize="24px">Nandom Alfred</Heading>
+            <Heading fontSize="24px">{currentUser.name}</Heading>
             <Text
               fontSize="20px"
               fontStyle="normal"
               fontWeight="300"
               color="#57606a"
             >
-              domkoder
+              {currentUser.login}
             </Text>
           </Box>
         </Box>
 
         <Text mb="4" fontSize="16px" color="#24292f">
-          Hoodlum
+          {currentUser.bio}
         </Text>
 
         <Button
@@ -88,12 +91,12 @@ function ProfileDetails() {
         >
           <Icon as={Users} />
           <Text fontWeight="extrabold" as="span">
-            20
+            {currentUser.followers}
           </Text>
           <Text color="#57606a">followers </Text>
           <box as="span">.</box>
           <Text fontWeight="extrabold" as="span">
-            39
+            {currentUser.following}
           </Text>{' '}
           <Text color="#57606a">following</Text>
         </Box>
