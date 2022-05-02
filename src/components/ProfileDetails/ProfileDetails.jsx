@@ -93,7 +93,7 @@ function ProfileDetails() {
         </Button>
 
         <Box
-          as="p"
+          as="div"
           mb="4"
           gap="4px"
           fontSize="14px"

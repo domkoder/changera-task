@@ -8,8 +8,6 @@ import Loading from './Loading';
 function RepositoriesDetails() {
   const repositories = useSelector(({ entities }) => entities.repositories);
 
-  console.log('repositories:', repositories);
-
   return (
     <GridItem w="100%">
       <SubHeader />
