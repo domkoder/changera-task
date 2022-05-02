@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Grid, Container, Flex, Link, Spacer, Box } from '@chakra-ui/react';
+import { Grid, Container, Spacer, Box } from '@chakra-ui/react';
 import HeaderNav from './HeaderNav';
 
 function Header() {

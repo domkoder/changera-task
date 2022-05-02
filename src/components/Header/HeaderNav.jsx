@@ -1,5 +1,5 @@
 import HeaderLink from './HeaderLink';
-import { Box, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
 // import svg as rect components
 import { ReactComponent as OverviewIcon } from '../../icons/overview.svg';

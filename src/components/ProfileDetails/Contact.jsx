@@ -1,9 +1,4 @@
-import { List, ListItem, ListIcon } from '@chakra-ui/react';
-
-import { ReactComponent as Location } from '../../icons/location.svg';
-import { ReactComponent as Mail } from '../../icons/mail.svg';
-import { ReactComponent as Twitter } from '../../icons/twitter.svg';
-import { ReactComponent as Organization } from '../../icons/organization.svg';
+import { ListItem, ListIcon } from '@chakra-ui/react';
 
 function Contact({ Icon, title }) {
   return (
