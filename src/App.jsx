@@ -46,7 +46,7 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      <AppUnauthenticated />
+      <AppAuthenticated />
     </ChakraProvider>
   );
 }
