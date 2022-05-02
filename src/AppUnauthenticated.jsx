@@ -23,7 +23,10 @@ export default function AppUnauthenticated() {
         borderRadius="6px"
         boxShadow="sm"
         _hover={{ bg: '#485058', decoration: 'none' }}
-        href="https://github.com/login/oauth/authorize?client_id=323201eedf1cc3f305d8"
+        // href="https://github.com/login/oauth/authorize?client_id=323201eedf1cc3f305d8"
+        onClick={() => {
+          console.log('clicked');
+        }}
       >
         <Icon as={GitHub} fontSize="20px" />
         Continue with GitHub

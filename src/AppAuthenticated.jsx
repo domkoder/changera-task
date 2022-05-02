@@ -12,7 +12,7 @@ function AppAuthenticated() {
         <Grid gridTemplateColumns="296px 1fr" gridTemplateRows="1fr" gap={8}>
           <ProfileDetails />
           <Routes>
-            <Route path="/" element={<RepositoriesDetails />} />
+            <Route path="/repositories" element={<RepositoriesDetails />} />
           </Routes>
         </Grid>
       </Container>

@@ -40,13 +40,13 @@ function App() {
           console.log(error);
         });
     }
-    postData();
-    console.log('location:', code);
+    // postData();
+    // console.log('location:', code);
   }, [code]);
 
   return (
     <ChakraProvider theme={theme}>
-      <AppUnauthenticated />
+      <AppAuthenticated />
     </ChakraProvider>
   );
 }
