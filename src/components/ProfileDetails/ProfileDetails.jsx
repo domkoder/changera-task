@@ -25,6 +25,7 @@ import { ReactComponent as Link } from '../../icons/link.svg';
 import { ReactComponent as Organization } from '../../icons/organization.svg';
 
 function ProfileDetails() {
+  const auth = useSelector(({ entities }) => entities.auth);
   const {
     avatar_url,
     name,
@@ -37,7 +38,7 @@ function ProfileDetails() {
     blog,
     location,
     twitter_username,
-  } = useSelector(({ entities }) => entities.user);
+  } = auth.currentUser;
 
   return (
     <GridItem w="100%">

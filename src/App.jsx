@@ -1,13 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 
-import { Routes, Route, useSearchParams, useLocation } from 'react-router-dom';
-import { ChakraProvider, Container, theme, Grid } from '@chakra-ui/react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { ChakraProvider, theme } from '@chakra-ui/react';
 
-import { Header, ProfileDetails, RepositoriesDetails } from './components';
-
-const AppAuthenticated = React.lazy(() => import('./AppAuthenticated'));
-const AppUnauthenticated = React.lazy(() => import('./AppUnauthenticated'));
+import AppAuthenticated from './AppAuthenticated';
+import AppUnauthenticated from './AppUnauthenticated';
 
 function App() {
   // let [searchParams, setSearchParams] = useSearchParams();
@@ -46,7 +44,10 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      <AppAuthenticated />
+      <Routes>
+        <Route path="/login" element={<AppAuthenticated />} />
+        <Route path="/" element={<AppUnauthenticated />} />
+      </Routes>
     </ChakraProvider>
   );
 }

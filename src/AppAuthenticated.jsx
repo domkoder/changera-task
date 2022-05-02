@@ -11,9 +11,7 @@ function AppAuthenticated() {
       <Container maxW="container.xl" paddingBottom={10}>
         <Grid gridTemplateColumns="296px 1fr" gridTemplateRows="1fr" gap={8}>
           <ProfileDetails />
-          <Routes>
-            <Route path="/repositories" element={<RepositoriesDetails />} />
-          </Routes>
+          <RepositoriesDetails />
         </Grid>
       </Container>
     </>
