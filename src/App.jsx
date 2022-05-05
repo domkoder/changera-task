@@ -45,7 +45,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Routes>
-        <Route path="/login" element={<AppAuthenticated />} />
+        <Route path="/repositories" element={<AppAuthenticated />} />
         <Route path="/" element={<AppUnauthenticated />} />
       </Routes>
     </ChakraProvider>

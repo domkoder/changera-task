@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "https://github.com",
-  "home": "https://626fb6fba92f1b1ac2871d79--curious-beijinho-734ea2.netlify.app/",
+  "home": "http://localhost:3000",
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.8",
