@@ -74,7 +74,7 @@ app.get('/api/me', (req, res) => {
 	try {
 		const decode = jwt.verify(cookie, secret)
 		return res.send(decode)
-	} catch (e) {
+	} catch (error) {
 		throw error
 	}
 })
