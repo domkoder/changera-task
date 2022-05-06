@@ -30,7 +30,7 @@ const getGitHubUser = async (code) => {
 			`https://github.com/login/oauth/access_token?client_id=${github_client_id}&client_secret=${github_client_secret}&code=${code}`
 		)
 		.then((res) => res.data)
-
+			console.log({res});
 		.catch((error) => {
 			throw error
 		})
@@ -69,11 +69,15 @@ app.get('/api/auth/github', async (req, res) => {
 		// secure: 'development',
 	})
 
+	console.log({ code }, '###################')
+
 	res.redirect(`http://localhost:3000/${path}`)
 })
 
 app.get('/api/me', (req, res) => {
 	const cookie = _.get(req, `cookies[${cookie_name}]`)
+
+	console.log({ code }, cookie)
 
 	try {
 		const decode = jwt.verify(cookie, secret)
