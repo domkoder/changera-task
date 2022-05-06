@@ -79,8 +79,6 @@ app.get('/api/auth/github', async (req, res) => {
 app.get('/api/me', (req, res) => {
 	const cookie = _.get(req, `cookies[${cookie_name}]`)
 
-	console.log({ code }, cookie)
-
 	try {
 		const decode = jwt.verify(cookie, secret)
 		return res.send(decode)
