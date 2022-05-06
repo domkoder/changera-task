@@ -58,7 +58,11 @@ app.get('/api/auth/github', async (req, res) => {
 	const gitHubUser = await getGitHubUser(code)
 	const token = jwt.sign(gitHubUser, secret)
 	console.log('working just fine1######################:', token)
-	res.cookie(cookie_name, token)
+	res.cookie(COOKIE_NAME, token, {
+		httpOnly: true,
+		domain: 'localhost',
+		secure: true,
+	})
 	console.log('working just fine1######################:', token)
 
 	res.redirect(
