@@ -17,7 +17,7 @@ const app = express()
 
 app.use(
 	cors({
-		origin: 'http://localhost:3000',
+		origin: '*',
 		credentials: true,
 	})
 )
@@ -52,6 +52,8 @@ const getGitHubUser = async (code) => {
 app.get('/api/auth/github', async (req, res) => {
 	const code = _.get(req, 'query.code')
 	const path = _.get(req, 'query.code', '/')
+
+	console.log(code)
 
 	if (!code) {
 		throw new Error('No code!')
