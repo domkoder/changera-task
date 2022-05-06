@@ -61,7 +61,9 @@ app.get('/api/auth/github', async (req, res) => {
 		domain: 'localhost',
 		secure: 'development',
 	})
-	res.redirect(`http://localhost:3000/${path}`)
+	res.redirect(
+		`https://6275a0b24fb3730f5af493b2--curious-beijinho-734ea2.netlify.app/`
+	)
 })
 
 app.get('/', (req, res) => {
