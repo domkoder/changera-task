@@ -29,8 +29,10 @@ const getGitHubUser = async (code) => {
 		.post(
 			`https://github.com/login/oauth/access_token?client_id=${github_client_id}&client_secret=${github_client_secret}&code=${code}`
 		)
-		.then((res) => res.data)
-			console.log({res});
+		.then((res) => {
+			res.data
+			console.log({ res })
+		})
 		.catch((error) => {
 			throw error
 		})
