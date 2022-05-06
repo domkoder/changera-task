@@ -29,7 +29,7 @@ function Repository({ repository }) {
     license,
     forks_count,
     language,
-    url,
+    html_url,
     fork,
     full_name,
   } = repository;
@@ -38,7 +38,12 @@ function Repository({ repository }) {
     <Flex justify="space-between">
       <Box color="#57606a" fontWeight="500">
         <HStack space={2} mb="2">
-          <Link color="#0969da" fontSize="20px" fontWeight="600" href={url}>
+          <Link
+            color="#0969da"
+            fontSize="20px"
+            fontWeight="600"
+            href={html_url}
+          >
             {name}
           </Link>
           <Badge

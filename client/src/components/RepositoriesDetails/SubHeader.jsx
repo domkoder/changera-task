@@ -1,5 +1,4 @@
 import { Flex, Input, Button, Box } from '@chakra-ui/react';
-import { EmailIcon } from '@chakra-ui/icons';
 
 import DropdownButton from './DropdownButton';
 

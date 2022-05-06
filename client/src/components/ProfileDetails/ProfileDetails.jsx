@@ -13,7 +13,6 @@ import {
   Icon,
 } from '@chakra-ui/react';
 
-import Loading from './Loading';
 import Contact from './Contact';
 
 // import svg as rect components
@@ -25,7 +24,7 @@ import { ReactComponent as Link } from '../../icons/link.svg';
 import { ReactComponent as Organization } from '../../icons/organization.svg';
 
 function ProfileDetails() {
-  const auth = useSelector(({ entities }) => entities.auth);
+  const { currentUser } = useSelector(({ entities }) => entities.user);
   const {
     avatar_url,
     name,
@@ -38,11 +37,10 @@ function ProfileDetails() {
     blog,
     location,
     twitter_username,
-  } = auth.currentUser;
+  } = currentUser;
 
   return (
     <GridItem w="100%">
-      {/* <Loading /> */}
       <Box mt="-35px">
         <Box>
           <Avatar src={avatar_url} w="296px" h="296px">
