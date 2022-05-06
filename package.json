@@ -12,8 +12,8 @@
   "author": "nandom alfred",
   "license": "MIT",
   "engines": {
-      "node": "16.13.1",
-      "npm": "8.6.0"
+    "node": "16.13.1",
+    "npm": "16.13.1"
   },
   "dependencies": {
     "axios": "^0.27.2",

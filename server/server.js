@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const _ = require('lodash')
 const axios = require('axios')
@@ -5,7 +6,6 @@ const querystring = require('querystring')
 const jwt = require('jsonwebtoken')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
-const dotenv = require('dotenv').config
 
 const port = process.env.PORT || 5000
 const github_client_id = process.env.GITHUB_CLIENT_ID
@@ -29,21 +29,14 @@ const getGitHubUser = async (code) => {
 		.post(
 			`https://github.com/login/oauth/access_token?client_id=${github_client_id}&client_secret=${github_client_secret}&code=${code}`
 		)
-		.then((res) => {
-			res.data
-			console.log({ res })
-		})
+		.then((res) => res.data)
 		.catch((error) => {
 			throw error
 		})
 
-	console.log({ githubToken })
-
 	const decoded = querystring.parse(githubToken)
-	console.log({ decoded })
 
 	const accessToken = decoded.access_token
-	console.log({ accessToken })
 
 	return axios
 		.get('https://api.github.com/user', {
@@ -58,28 +51,20 @@ const getGitHubUser = async (code) => {
 app.get('/api/auth/github', async (req, res) => {
 	const code = _.get(req, 'query.code')
 	const path = _.get(req, 'query.code', '/')
-
-	console.log({ code }, '###################')
-
 	if (!code) {
 		throw new Error('No code!')
 	}
-
 	const gitHubUser = await getGitHubUser(code)
-
-	console.log({ gitHubUser })
-
 	const token = jwt.sign(gitHubUser, secret)
-
 	res.cookie(cookie_name, token, {
 		httpOnly: true,
 		domain: 'localhost',
-		// secure: 'development',
 	})
-
-	console.log({ code }, '###################')
-
 	res.redirect(`http://localhost:3000/${path}`)
+})
+
+app.get('/', (req, res) => {
+	return res.send('working just fine')
 })
 
 app.get('/api/me', (req, res) => {
