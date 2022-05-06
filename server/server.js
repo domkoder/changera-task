@@ -37,9 +37,13 @@ const getGitHubUser = async (code) => {
 			throw error
 		})
 
+	console.log({ githubToken })
+
 	const decoded = querystring.parse(githubToken)
+	console.log({ decoded })
 
 	const accessToken = decoded.access_token
+	console.log({ accessToken })
 
 	return axios
 		.get('https://api.github.com/user', {
@@ -62,6 +66,8 @@ app.get('/api/auth/github', async (req, res) => {
 	}
 
 	const gitHubUser = await getGitHubUser(code)
+
+	console.log({ gitHubUser })
 
 	const token = jwt.sign(gitHubUser, secret)
 
