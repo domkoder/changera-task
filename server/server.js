@@ -59,7 +59,7 @@ app.get('/api/auth/github', async (req, res) => {
 	const token = jwt.sign(gitHubUser, secret)
 	res.cookie(cookie_name, token, {
 		httpOnly: true,
-		domain: 'localhost',
+		domain: '6275a0b24fb3730f5af493b2--curious-beijinho-734ea2',
 		secure: 'development',
 	})
 	res.redirect(
