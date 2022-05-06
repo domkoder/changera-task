@@ -60,8 +60,9 @@ app.get('/api/auth/github', async (req, res) => {
 	console.log('working just fine1######################:', token)
 	res.cookie(cookie_name, token, {
 		httpOnly: true,
-		domain: 'localhost',
 		secure: true,
+		maxAge: 1000000,
+		signed: true,
 	})
 	console.log('working just fine1######################:', token)
 
