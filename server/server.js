@@ -59,7 +59,7 @@ app.get('/api/auth/github', async (req, res) => {
 	res.cookie(cookie_name, token, {
 		httpOnly: true,
 		domain: 'localhost',
-		// secure: 'development',
+		secure: 'development',
 	})
 	res.redirect(`http://localhost:3000/${path}`)
 })
