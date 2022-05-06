@@ -69,7 +69,7 @@ app.get('/api/auth/github', async (req, res) => {
 		// secure: 'development',
 	})
 
-	res.redirect(`http://localhost:3000`)
+	// res.redirect(`http://localhost:3000/`)
 })
 
 app.get('/api/me', (req, res) => {
