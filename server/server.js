@@ -53,7 +53,7 @@ app.get('/api/auth/github', async (req, res) => {
 	const code = _.get(req, 'query.code')
 	const path = _.get(req, 'query.code', '/')
 
-	console.log(code)
+	console.log({ code }, '###################')
 
 	if (!code) {
 		throw new Error('No code!')
