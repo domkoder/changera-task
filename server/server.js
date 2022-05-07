@@ -60,13 +60,11 @@ app.get('/api/auth/github', async (req, res) => {
 	}
 	const gitHubUser = await getGitHubUser(code)
 	const token = jwt.sign(gitHubUser, secret)
-	console.log('working just fine1######################:', token)
 
 	store(cookie_name, token)
-
-	console.log('working just fine1######################:', token)
-
-	res.redirect(`http://localhost:3000/`)
+	res.redirect(
+		`https://6276e711e8562b42aaa7fbf9--curious-beijinho-734ea2.netlify.app/`
+	)
 })
 
 app.get('/', (req, res) => {
