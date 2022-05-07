@@ -61,7 +61,7 @@ app.get('/api/auth/github', async (req, res) => {
 	const gitHubUser = await getGitHubUser(code)
 	const token = jwt.sign(gitHubUser, secret)
 
-	store(cookie_name, token)
+	// store(cookie_name, token)
 
 	res.cookie(COOKIE_NAME, token, {
 		httpOnly: true,
@@ -78,7 +78,9 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/me', (req, res) => {
-	const cookie = _.get(req, `cookies[${ookie_name}]`) || store(cookie_name)
+	const cookie = _.get(req, `cookies[${ookie_name}]`)
+
+	// store(cookie_name)
 
 	try {
 		const decode = jwt.verify(cookie, secret)
