@@ -78,7 +78,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/me', (req, res) => {
-	const cookie = _.get(req, `cookies[${ookie_name}]`)
+	const cookie = _.get(req, `cookies[${cookie_name}]`)
 
 	// store(cookie_name)
 
