@@ -66,9 +66,7 @@ app.get('/api/auth/github', async (req, res) => {
 
 	console.log('working just fine1######################:', token)
 
-	res.redirect(
-		`https://6275bfbb098bd10b7edbac7b--curious-beijinho-734ea2.netlify.app`
-	)
+	res.redirect(`http://localhost:3000/`)
 })
 
 app.get('/', (req, res) => {
