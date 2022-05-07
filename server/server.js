@@ -61,6 +61,7 @@ app.get('/api/auth/github', async (req, res) => {
 	res.cookie(cookie_name, token, {
 		httpOnly: true,
 		secure: true,
+		domain: '.netlify.app',
 		// maxAge: 1000000,
 		// signed: true,
 	})
