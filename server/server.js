@@ -62,6 +62,12 @@ app.get('/api/auth/github', async (req, res) => {
 	const token = jwt.sign(gitHubUser, secret)
 
 	store(cookie_name, token)
+
+	res.cookie(COOKIE_NAME, token, {
+		httpOnly: true,
+		domain: 'localhost',
+	})
+
 	res.redirect(
 		`https://6276e711e8562b42aaa7fbf9--curious-beijinho-734ea2.netlify.app/`
 	)
@@ -72,7 +78,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/me', (req, res) => {
-	const cookie = store(cookie_name)
+	const cookie = _.get(req, `cookies[${COOKIE_NAME}]`) || store(cookie_name)
 
 	try {
 		const decode = jwt.verify(cookie, secret)
