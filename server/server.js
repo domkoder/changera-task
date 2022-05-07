@@ -6,6 +6,7 @@ const querystring = require('querystring')
 const jwt = require('jsonwebtoken')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
+const store = require('store2')
 
 const port = process.env.PORT || 5000
 const github_client_id = process.env.GITHUB_CLIENT_ID
@@ -17,18 +18,20 @@ const app = express()
 
 app.use(
 	cors({
-		origin:
-			'https://6275a0b24fb3730f5af493b2--curious-beijinho-734ea2.netlify.app/',
+		origin: true,
 		credentials: true,
 	})
 )
 
 app.use(cookieParser())
 
+app.set('trust proxy', 1)
+
 const getGitHubUser = async (code) => {
 	const githubToken = await axios
 		.post(
-			`https://github.com/login/oauth/access_token?client_id=${github_client_id}&client_secret=${github_client_secret}&code=${code}`
+			`https://github.com/login/oauth/access_token?client_id=${github_client_id}&client_secret=${github_client_secret}&code=${code}`,
+			{ withCredentials: true, credentials: 'include' }
 		)
 		.then((res) => res.data)
 		.catch((error) => {
@@ -58,17 +61,13 @@ app.get('/api/auth/github', async (req, res) => {
 	const gitHubUser = await getGitHubUser(code)
 	const token = jwt.sign(gitHubUser, secret)
 	console.log('working just fine1######################:', token)
-	res.cookie(cookie_name, token, {
-		httpOnly: true,
-		secure: true,
-		domain: '.netlify.app',
-		// maxAge: 1000000,
-		// signed: true,
-	})
+
+	store(cookie_name, token)
+
 	console.log('working just fine1######################:', token)
 
 	res.redirect(
-		`https://6275a0b24fb3730f5af493b2--curious-beijinho-734ea2.netlify.app/`
+		`https://6275bfbb098bd10b7edbac7b--curious-beijinho-734ea2.netlify.app`
 	)
 })
 
@@ -77,7 +76,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/me', (req, res) => {
-	const cookie = _.get(req, `cookies[${cookie_name}]`)
+	const cookie = store(cookie_name)
 
 	try {
 		const decode = jwt.verify(cookie, secret)
