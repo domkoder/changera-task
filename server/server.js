@@ -78,7 +78,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/api/me', (req, res) => {
-	const cookie = _.get(req, `cookies[${COOKIE_NAME}]`) || store(cookie_name)
+	const cookie = _.get(req, `cookies[${ookie_name}]`) || store(cookie_name)
 
 	try {
 		const decode = jwt.verify(cookie, secret)
