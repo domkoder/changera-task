@@ -3,8 +3,8 @@ import { Center, Icon, Link } from '@chakra-ui/react';
 import { ReactComponent as GitHub } from './icons/github.svg';
 
 function AppUnauthenticated() {
-  const redirectUrl = process.env.REACT_APP_REDIRECT_URL;
-  const clientId = process.env.REACT_APP_GITHUB_CLIENT_ID;
+  const redirectUrl = 'http://localhost:5000/api/auth/github';
+  const clientId = '323201eedf1cc3f305d8';
 
   // const client_id = '323201eedf1cc3f305d8';
 

@@ -69,7 +69,7 @@ app.get('/api/auth/github', async (req, res) => {
 		domain: 'localhost',
 	})
 
-	res.redirect(`http://localhost:3000/`)
+	res.redirect(`http://localhost:5000/`)
 })
 
 app.get('/api/me', (req, res) => {
@@ -89,7 +89,7 @@ if (process.env.NODE_ENV === 'production') {
 
 	app.get('*', (req, res) =>
 		res.sendFile(
-			path.resolve(__dirname, '../', 'client', 'build', 'index.html')
+			path.resolve(__dirname, '../', 'client ', 'build', 'index.html')
 		)
 	)
 } else {
