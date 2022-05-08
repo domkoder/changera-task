@@ -3,7 +3,7 @@ import { Center, Icon, Link } from '@chakra-ui/react';
 import { ReactComponent as GitHub } from './icons/github.svg';
 
 function AppUnauthenticated() {
-  const redirectUrl = 'http://localhost:5000/api/auth/github';
+  const redirectUrl = 'https://changera-task.herokuapp.com/api/auth/github';
   const clientId = '323201eedf1cc3f305d8';
 
   // const client_id = '323201eedf1cc3f305d8';

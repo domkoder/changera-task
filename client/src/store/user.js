@@ -4,9 +4,12 @@ import axios from 'axios';
 // Get user
 export const getUser = createAsyncThunk('user/get', async (_, thunkAPI) => {
   try {
-    const response = await await axios.get(`http://localhost:5000/api/me`, {
-      withCredentials: true,
-    });
+    const response = await await axios.get(
+      `https://changera-task.herokuapp.com/api/me`,
+      {
+        withCredentials: true,
+      }
+    );
     return response.data;
   } catch (error) {
     const message =
