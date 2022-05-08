@@ -67,7 +67,7 @@ app.get('/api/auth/github', async (req, res) => {
 		// domain: '.herokuapp.com',
 	})
 
-	res.redirect(`/`)
+	res.redirect(`http://localhost:3000/`)
 })
 
 app.get('/api/me', (req, res) => {
