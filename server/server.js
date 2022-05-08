@@ -63,7 +63,8 @@ app.get('/api/auth/github', async (req, res) => {
 
 	res.cookie(cookie_name, token, {
 		httpOnly: true,
-		domain: '.herokuapp.com',
+		secure: true,
+		// domain: '.herokuapp.com',
 	})
 
 	res.redirect(`/`)
