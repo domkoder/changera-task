@@ -69,7 +69,7 @@ app.get('/api/auth/github', async (req, res) => {
 		domain: 'localhost',
 	})
 
-	res.redirect(`http://localhost:5000/`)
+	res.redirect(`/`)
 })
 
 app.get('/api/me', (req, res) => {
