@@ -61,10 +61,9 @@ app.get('/api/auth/github', async (req, res) => {
 	const gitHubUser = await getGitHubUser(code)
 	const token = jwt.sign(gitHubUser, secret)
 
-
 	res.cookie(cookie_name, token, {
 		httpOnly: true,
-		domain: 'localhost',
+		domain: '.herokuapp.com',
 	})
 
 	res.redirect(`/`)
